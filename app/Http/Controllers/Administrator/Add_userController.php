@@ -4,9 +4,9 @@ namespace App\Http\Controllers\administrator;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\User_role;
-use App\Departments;
-use App\Designations;
+use App\UserRole\User_role;
+use App\Depertment;
+use App\Designation;
 use Illuminate\Support\Facades\Hash;
 use DB;
 use App\Employee;
@@ -21,8 +21,8 @@ class Add_userController extends Controller
     public function index()
     {
         $useroll = User_role::all();
-        $departments = Departments::all();
-        $designations = Designations::all();
+        $departments = Depertment::all();
+        $designations = Designation::all();
          $menuname             =    'HR Module';
         return view('administrator.add_user',compact('useroll','departments','designations','menuname'));
     }
@@ -37,19 +37,14 @@ class Add_userController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
 
          $this->validate($request, [
             'email'        => 'required|email|unique:users,email'
         ]);
-        
+
 
         DB::table('users')
             ->insert([
@@ -62,6 +57,8 @@ class Add_userController extends Controller
 
 
         $path = 'public/admin/employee/' . $user_id;
+
+
         File::makeDirectory($path);
 
         $fileName = null;

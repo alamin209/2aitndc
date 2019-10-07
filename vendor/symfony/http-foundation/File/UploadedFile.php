@@ -157,7 +157,7 @@ class UploadedFile extends File
     {
         @trigger_error(sprintf('The "%s()" method is deprecated since Symfony 4.1. Use getSize() instead.', __METHOD__), E_USER_DEPRECATED);
 
-        return $this->getSize();
+        return $size = $image->getSize();;
     }
 
     /**

@@ -33,3 +33,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => '/'],function(){
     Route::resource('addDepertment', 'department\DepertmentController');
 });
+
+Route::namespace('designation')->middleware('auth')->group(function (){
+
+    Route::resource('addDesignation', 'DesignationController');
+    Route::post('getdesignation',       'DesignationController@show');
+});

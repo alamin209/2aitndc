@@ -1,4 +1,4 @@
-@extends('layouts.admin') 
+@extends('layouts.admin')
 
 @section('content')
 <!--main content start-->
@@ -35,21 +35,21 @@
                     <div class="panel-body addfrom">
                         <form class="cmxform form-horizontal tasi-form" id="addUserForm"  role="form" method="post"  action="{{url('/')}}/add_user"  enctype="multipart/form-data" >
                                 @csrf
-                            
+
                             <div class="form-group">
                                 <label for="inputSuccess" class="col-sm-2 control-label col-lg-2 lab">Full Name *</label>
                                 <div class="col-lg-10">
                                     <input type="text" class="form-control" placeholder="Enter Full Name" id="add_full_name" name="add_full_name" value="{{ old('add_full_name') }}" required>
                                 </div>
                             </div>
-							
+
                             <div class="form-group">
                                 <label for="inputSuccess" class="col-sm-2 control-label col-lg-2 lab">Employee Id(make it unique)*</label>
                                 <div class="col-lg-10">
                                     <input type="text" class="form-control" placeholder="Enter Employee id" id="emp_id" value="<?=rand(10000, 99999);?>" name="emp_id" >
                                 </div>
                             </div>
-							
+
                             <div class="form-group">
                                 <label for="inputSuccess" class="col-sm-2 control-label col-lg-2 lab">Date Of Birth*</label>
                                 <div class="col-lg-10">
@@ -79,7 +79,7 @@
                                     <select class="form-control m-bot15"  name="dep_id" id="dep_id"  onchange="getdegignation(this.value)" required>
                                         <option value="" >Select Department </option>
                                         @foreach($departments  as $dep)
-                                            <option value="{{ $dep->id }}" {{ (Input::old("dep_id") ==  $dep->id ? "selected":"") }}>{{ $dep->department_name }}</option>
+                                            <option value="{{ $dep->id }}" {{ (Request::old("dep_id") ==  $dep->id ? "selected":"") }}>{{ $dep->department_name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -93,34 +93,34 @@
                                     </select>
                                 </div>
                             </div>
-							
+
                             <div class="form-group">
                                 <label for="inputSuccess" class="col-sm-2 control-label col-lg-2 lab">Employee Type*</label>
                                 <div class="col-lg-10">
                                     <select class="form-control" id="add_role" name="emp_type" required>
                                         <option value="">Employee Type</option>
 
-                                        <option value="1" {{ (Input::old("add_role") ==  1 ? "selected":"") }}>Permanent</option>
-                                        <option value="0" {{ (Input::old("add_role") ==  0 ? "selected":"") }} >Temporary</option>
+                                        <option value="1" {{ (Request::old("add_role") ==  1 ? "selected":"") }}>Permanent</option>
+                                        <option value="0" {{ (Request::old("add_role") ==  0 ? "selected":"") }} >Temporary</option>
 
                                     </select>
                                 </div>
                             </div>
-							
+
                             <!--<div class="form-group">-->
                             <!--    <label for="inputSuccess" class="col-sm-2 control-label col-lg-2 lab">Basic Salary*</label>-->
                             <!--    <div class="col-lg-10">-->
                             <!--        <input type="text" class="form-control " placeholder="Enter Basic Salary" id="gross_salary"   value="{{ old('gross_salary') }}"  name="gross_salary" required>-->
                             <!--    </div>-->
                             <!--</div>-->
-							
+
                             <div class="form-group">
                                 <label for="inputSuccess" class="col-sm-2 control-label col-lg-2 lab">Reporting To*</label>
                                 <div class="col-lg-10">
                                     <input type="text" class="form-control " placeholder="Enter Reporting Date" id="reporting_to"  value="{{ old('reporting_to') }}"  name="reporting_to" required>
                                 </div>
                             </div>
-							
+
                             <div class="form-group">
                                 <label for="inputSuccess" class="col-sm-2 control-label col-lg-2 lab">Appointed Date*</label>
                                 <div class="col-lg-10">
@@ -148,26 +148,26 @@
                                     <input type="password" class="form-control" placeholder="Enter Password" id="add_password" name="add_password"  required>
                                 </div>
                             </div>
-							
+
                             <div class="form-group">
                                 <label for="inputSuccess" class="col-sm-2 control-label col-lg-2 lab">Gender*</label>
                                 <div class="col-lg-10">
                                     <select class="form-control" id="gender Status" name="gender" required> <!-- input-sm m-bot15  -->
                                         <option value="">Select Gender</option>
-                                        <option value="1" {{ (Input::old("gender") ==  1 ? "selected":"") }}>Male</option>
-                                        <option value="0" {{ (Input::old("gender") ==  0 ? "selected":"") }}>Female</option>
+                                        <option value="1" {{ (Request::old("gender") ==  1 ? "selected":"") }}>Male</option>
+                                        <option value="0" {{ (Request::old("gender") ==  0 ? "selected":"") }}>Female</option>
                                     </select>
                                 </div>
                             </div>
-							
+
                             <div class="form-group">
                                 <label for="inputSuccess" class="col-sm-2 control-label col-lg-2 lab">Marital Status*</label>
                                 <div class="col-lg-10">
                                     <select class="form-control" id="Marital Status" name="marital_status" required> <!-- input-sm m-bot15  -->
-                                        
+
 										<option value="">Select Marital Status</option>
-                                        <option value="1" {{ (Input::old("marital_status") ==  1 ? "selected":"") }}>Single</option>
-                                        <option value="0" {{ (Input::old("marital_status") ==  0 ? "selected":"") }} >Married</option>
+                                        <option value="1" {{ (Request::old("marital_status") ==  1 ? "selected":"") }}>Single</option>
+                                        <option value="0" {{ (Request::old("marital_status") ==  0 ? "selected":"") }} >Married</option>
                                     </select>
                                 </div>
                             </div>
@@ -178,21 +178,21 @@
 									<input type="text" class="form-control" placeholder="Enter Mobile Number" id="add_mobile" name="add_mobile" maxlength="11" value="{{ old('add_mobile') }}" required>
 								</div>
 							</div>
-							
+
 							<div class="form-group">
 								<label for="inputSuccess" class="col-sm-2 control-label col-lg-2 lab">Father Name* </label>
 								<div class="col-lg-10">
 									<input type="text" class="form-control" placeholder="Enter Father name" id="father_name" name="father_name" value="{{ old('father_name') }}" required>
 								</div>
 							</div>
-							
+
                             <div class="form-group">
                                 <label for="inputSuccess" class="col-sm-2 control-label col-lg-2 lab">Mother Name* </label>
                                 <div class="col-lg-10">
                                     <input type="text" class="form-control" placeholder="Enter Mother Name" id="mother_name" name="mother_name"  value="{{ old('mother_name') }}" required>
                                 </div>
                             </div>
-                            
+
 							<div class="form-group">
                                 <label for="inputSuccess" class="col-sm-2 control-label col-lg-2 lab">Emergency Contact* </label>
                                 <div class="col-lg-10">
@@ -239,10 +239,10 @@
                                     <select class="form-control" id="add_religin" name="add_religin" required> <!-- input-sm m-bot15  -->
 
                                         <option value="">Select Religion </option>
-                                        <option value="1" {{ (Input::old("add_religin") ==  1 ? "selected":"") }} >Muslim</option>
-                                        <option value="2" {{ (Input::old("add_religin") ==  2 ? "selected":"") }} >Hindu</option>
-                                        <option value="3" {{ (Input::old("add_religin") ==  3 ? "selected":"") }}>Christan</option>
-                                        <option value="4" {{ (Input::old("add_religin") ==  4 ? "selected":"") }}>Other</option>
+                                        <option value="1" {{ (Request::old("add_religin") ==  1 ? "selected":"") }} >Muslim</option>
+                                        <option value="2" {{ (Request::old("add_religin") ==  2 ? "selected":"") }} >Hindu</option>
+                                        <option value="3" {{ (Request::old("add_religin") ==  3 ? "selected":"") }}>Christan</option>
+                                        <option value="4" {{ (Request::old("add_religin") ==  4 ? "selected":"") }}>Other</option>
                                     </select>
                                 </div>
                             </div>
@@ -275,7 +275,7 @@
             </div>
         </div>
 
-       
+
 
 </section>
 
@@ -300,26 +300,26 @@
 						 <label class="col-lg-3 col-sm-3 control-label" for="name">Mobile Number</label>
 						 <div class="col-lg-9">
                             <input type="text" placeholder="Enter Phone" id="edit_phone" name="edit_phone" class="form-control">
-						
+
                         </div>
 						 <label class="col-lg-3 col-sm-3 control-label" for="name">Email</label>
 						 <div class="col-lg-9">
                             <input type="text" placeholder="Enter Email" id="edit_email" name="edit_email" class="form-control">
-							
+
                         </div>
-						
-						
+
+
 						<label class="col-lg-3 col-sm-3 control-label" for="name">Select Status</label>
 						 <div class="col-lg-9">
                            <select class="form-control" id="edit_status" name="edit_status"> <!-- input-sm m-bot15  -->
-                               
-                               
+
+
                                 <option value="1">Active</option>
                                <option value="2">In Active</option>
                             </select>
-							
+
                         </div>
-						
+
                     </div>
                     <div class="form-group">
                         <div class="col-lg-offset-3 col-lg-9">
@@ -345,7 +345,7 @@
 
 
 //function editUser(){
-	   
+
 //   $("#myModalEdit").modal();
 // }
 
