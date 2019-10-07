@@ -405,7 +405,9 @@ class ComposerStaticInit88e25687efda0ac64f35264d3261b4ab
     );
 
     public static $classMap = array (
+        'App\\Administrator' => __DIR__ . '/../..' . '/app/Administrator.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
+        'App\\Depertment' => __DIR__ . '/../..' . '/app/Depertment.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
@@ -413,6 +415,13 @@ class ComposerStaticInit88e25687efda0ac64f35264d3261b4ab
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
+        'App\\Http\\Controllers\\administrator\\Add_menuController' => __DIR__ . '/../..' . '/app/Http/Controllers/Administrator/Add_menuController.php',
+        'App\\Http\\Controllers\\administrator\\Add_subs_menuController' => __DIR__ . '/../..' . '/app/Http/Controllers/Administrator/Add_subs_menuController.php',
+        'App\\Http\\Controllers\\administrator\\Add_userController' => __DIR__ . '/../..' . '/app/Http/Controllers/Administrator/Add_userController.php',
+        'App\\Http\\Controllers\\administrator\\Add_user_permissionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Administrator/Add_user_permissionController.php',
+        'App\\Http\\Controllers\\administrator\\Add_user_roleController' => __DIR__ . '/../..' . '/app/Http/Controllers/Administrator/Add_user_roleController.php',
+        'App\\Http\\Controllers\\administrator\\DashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/Administrator/DashboardController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',

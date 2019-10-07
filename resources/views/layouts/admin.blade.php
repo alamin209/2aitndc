@@ -65,8 +65,7 @@
               </div>
 
 
-            <a href="{{ url('/') }}" class="logo" style="color: #000;text-shadow: 0px 0px 12px #fff;"><span>Dhaka School of Economics</span></a>
-
+            <a href="{{ url('/') }}" class="logo" style="color: #000;text-shadow: 0px 0px 12px #fff;"><span>National Development Co.</span></a>
 
 
 

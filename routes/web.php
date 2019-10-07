@@ -30,3 +30,6 @@ Route::group(['prefix' => '/'],function(){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['prefix' => '/'],function(){
+    Route::resource('addDepertment', 'department\DepertmentController');
+});

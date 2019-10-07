@@ -8,7 +8,7 @@
     <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
     <link rel="shortcut icon" href="img/favicon.png">
 
-    <title>Dhaka School of Economics</title>
+    <title>National Development Co</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{ url('/') }}/public/admin/css/bootstrap.min.css" rel="stylesheet">
@@ -43,7 +43,7 @@
             <form method="POST"  id="loginForm" class="form-signin" action="{{ route('login') }}">
                 {{--<img   style="width:326px; height:auto" src={{asset('public/admin/assets/logo/dsec.jpg')}} alt="Logo">--}}
                 <h2 class="form-signin-heading" style="color: #000;text-shadow: 0px 0px 12px #fff;">
-                    <strong>Dhaka School of Economics</strong>
+                    <strong>National Development Co</strong>
                 </h2>
                 <div class="login-wrap">
                     @csrf
