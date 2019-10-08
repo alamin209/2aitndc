@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Hash;
 use DB;
 use App\Employee;
 use File;
+//use Psy\Util\Str;
+use Illuminate\Support\Str;
+
 class Add_userController extends Controller
 {
     /**
@@ -56,28 +59,42 @@ class Add_userController extends Controller
         $user_id = DB::getPdo()->lastInsertId();
 
 
-        $path = 'public/admin/employee/' . $user_id;
-
-
-        File::makeDirectory($path);
-
         $fileName = null;
         $fileName2=null;
         if (request()->hasFile('sign_upload')) {
-            $file      = $request->file('sign_upload');
-            $fileName  = $file->getClientOriginalName();
-            $file->move($path, $fileName);
+
+            $photo=$request->file('sign_upload');
+            $fileName=  uniqid('photo_').Str::random('10').'.'.$photo->getClientOriginalExtension();
+
+            if($photo->isValid()){
+                $photo->storeAs('admin/employee/' . $user_id, $fileName);
+                }else{
+                echo "Image is not valid";
+                }
+
         }
+
         $fileName1 = null;
         if (request()->hasFile('photo_upload')) {
-            $file       = $request->file('photo_upload');
-            $fileName1  = $file->getClientOriginalName() ;
-            $file->move($path, $fileName1);
+
+            $photo=$request->file('photo_upload');
+            $fileName1=  uniqid('photo_').Str::random('10').'.'.$photo->getClientOriginalExtension();
+
+            if($photo->isValid()){
+                $photo->storeAs('admin/employee/' . $user_id, $fileName1);
+            }else{
+                echo "Image is not valid";
+            }
         }
         if (request()->hasFile('cv_upload')) {
-            $file           = $request->file('cv_upload');
-            $fileName2      = $file->getClientOriginalName() ;
-            $file->move($path, $fileName2);
+            $photo=$request->file('cv_upload');
+            $fileName2=  uniqid('photo_').Str::random('10').'.'.$photo->getClientOriginalExtension();
+            if($photo->isValid()){
+                $photo->storeAs('admin/employee/' . $user_id, $fileName2);
+            }else{
+                echo "Image is not valid";
+            }
+
         }
 
         Employee::create([

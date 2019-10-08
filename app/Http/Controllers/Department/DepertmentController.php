@@ -20,7 +20,7 @@ class DepertmentController extends Controller
     {
         $department = Depertment::all();
         $menuname = 'Administrator';
-        return view('department.add_department', compact('menuname','department', 'upangshos'));
+        return view('department.add_department', compact('menuname','department'));
     }
 
     /**

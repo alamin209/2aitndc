@@ -20,7 +20,7 @@ class DesignationController extends Controller
             ->get();
         $menuname = 'Administrator';
         $department = Depertment::all();
-        return view('designation.add_designation', compact('menuname','designations','department', 'upangshos'));
+        return view('designation.add_designation', compact('menuname','designations','department'));
     }
 
     /**
