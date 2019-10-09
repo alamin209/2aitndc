@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\administrator;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Providers\View;
+
 
 
 class DashboardController extends Controller
@@ -13,15 +13,15 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
+	 
 	public function __construct()
     {
         $this->middleware('auth');
     }
-
+	
     public function index()
     {
-
+        //
         return view('administrator.dashboard');
     }
 

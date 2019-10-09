@@ -150,39 +150,7 @@
     					'Salary sheet' => 'employesalaryshet/',
     					'Salary Order Bank ' => 'SalaryOrderbank/',
     				),
-    				'Subject' => array(
-    					'Add Subject ' => 'addSubject/'
-    				),
-    				'Courses' => array(
-    					'Add Course' => 'courses/',
-    					//'view Course' => 'viewcourse/'
 
-    				),
-    				'Configure Billing' => array(
-
-    					'Billing Configuration' => 'billingconfigure/',
-    				 ),
-
-    				'Admission' => array(
-
-    					'Add Admission Test ' => 'addmissiontest/',
-    					'Admission Slip' => 'admissionSlip/',
-    					'View Admission Slip' => 'viewAmissionSlip/',
-    					'Add Admission' => 'addmission/',
-    					'Student Billing' => 'admissiondue/',
-    					'Admission Payment' => 'get_student_print/',
-    				),
-
-
-    				'Student' => array(
-    					'Student List' => 'students/',
-    				     // 'Student Billing' => 'admissiondue/'
-    				),
-
-    				'Semester Billing' => array(
-    					'Semester Billing Process' => 'semester-billing/',
-    					//'All Billing' => 'add_khat/'
-    				 ),
 
     				'Bank' => array(
 

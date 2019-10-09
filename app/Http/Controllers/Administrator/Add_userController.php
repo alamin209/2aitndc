@@ -4,8 +4,8 @@ namespace App\Http\Controllers\administrator;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\UserRole\User_role;
-use App\Depertment;
+use App\User_role;
+use App\Departments;
 use App\Designation;
 use Illuminate\Support\Facades\Hash;
 use DB;
@@ -24,9 +24,9 @@ class Add_userController extends Controller
     public function index()
     {
         $useroll = User_role::all();
-        $departments = Depertment::all();
+        $departments = Departments::all();
         $designations = Designation::all();
-         $menuname             =    'HR Module';
+        $menuname             =    'HR Module';
         return view('administrator.add_user',compact('useroll','departments','designations','menuname'));
     }
 
@@ -44,7 +44,7 @@ class Add_userController extends Controller
     public function store(Request $request)
     {
 
-         $this->validate($request, [
+        $this->validate($request, [
             'email'        => 'required|email|unique:users,email'
         ]);
 
@@ -68,9 +68,9 @@ class Add_userController extends Controller
 
             if($photo->isValid()){
                 $photo->storeAs('admin/employee/' . $user_id, $fileName);
-                }else{
+            }else{
                 echo "Image is not valid";
-                }
+            }
 
         }
 
@@ -98,34 +98,34 @@ class Add_userController extends Controller
         }
 
         Employee::create([
-                'rol_id'              => 2,
-                'add_full_name'       => $request['add_full_name'],
-                'emp_id'              => $request['emp_id'],
-                'date_birth'          => date('Y-m-d',strtotime( $request['date_birth'])),
-                'dep_id'              => $request['dep_id'],
-                'dig_id'              => $request['dig_id'],
-                'emp_type'            => $request['emp_type'],
-                'gross_salary'        => $request['gross_salary'],
-                'user_id'             => $user_id,
-                'appointed_date'      => date('Y-m-d',strtotime($request['appointed_date'])),
-                'joining_date'        => date('Y-m-d',strtotime( $request['joining_date'])),
-                'marital_status'      => $request['marital_status'],
-                'add_mobile'          => $request['add_mobile'],
-                'father_name'         => $request['father_name'],
-                'mother_name'         => $request['mother_name'],
-                'reporting_to'        => $request['reporting_to'],
-                'emrgemcy_contact'    => $request['emrgemcy_contact'],
-                'sign_upload'         => $fileName,
-                'photo_upload'        => $fileName1,
-                'gender'             => $request['gender'],
-                'present_address'     => $request['present_address'],
-                'permenet_address'    => $request['permenet_address'],
-                'add_email'           => $request['email'],
-                'add_religin'         => $request['add_religin'],
-                'account_no'         => $request['account_no'],
-                'cv_upload'           => $fileName2,
+            'rol_id'              => 2,
+            'add_full_name'       => $request['add_full_name'],
+            'emp_id'              => $request['emp_id'],
+            'date_birth'          => date('Y-m-d',strtotime( $request['date_birth'])),
+            'dep_id'              => $request['dep_id'],
+            'dig_id'              => $request['dig_id'],
+            'emp_type'            => $request['emp_type'],
+            'gross_salary'        => $request['gross_salary'],
+            'user_id'             => $user_id,
+            'appointed_date'      => date('Y-m-d',strtotime($request['appointed_date'])),
+            'joining_date'        => date('Y-m-d',strtotime( $request['joining_date'])),
+            'marital_status'      => $request['marital_status'],
+            'add_mobile'          => $request['add_mobile'],
+            'father_name'         => $request['father_name'],
+            'mother_name'         => $request['mother_name'],
+            'reporting_to'        => $request['reporting_to'],
+            'emrgemcy_contact'    => $request['emrgemcy_contact'],
+            'sign_upload'         => $fileName,
+            'photo_upload'        => $fileName1,
+            'gender'             => $request['gender'],
+            'present_address'     => $request['present_address'],
+            'permenet_address'    => $request['permenet_address'],
+            'add_email'           => $request['email'],
+            'add_religin'         => $request['add_religin'],
+            'account_no'         => $request['account_no'],
+            'cv_upload'           => $fileName2,
 
-            ]);
+        ]);
 //        }
         return redirect()->back()->with('message', ' Employee Add   Success');
     }
